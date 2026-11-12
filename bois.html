@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coopérative Bois Recyclé — Artisanat en bois recyclé</title>
+<meta name="description" content="Coopérative artisanale spécialisée dans la fabrication de produits en bois recyclé : mobilier, décoration, ustensiles. Commande directe par WhatsApp.">
+<style>
+/* ============================================================
+   PALETTE DE COULEURS — modifiez ici pour changer le style
+   ============================================================ */
+:root{
+  --bois:#8B5E34;
+  --bois-fonce:#5C3D22;
+  --bois-clair:#C89B6E;
+  --creme:#FBF7F1;
+  --blanc:#ffffff;
+  --vert:#25D366;          /* couleur WhatsApp */
+  --vert-fonce:#1EBE5A;
+  --accent:#2E7D5B;
+  --or:#C9A227;
+  --texte:#2B2118;
+  --gris:#7A6A5A;
+  --bord:#E8DED1;
+  --ombre:0 6px 24px rgba(92,61,34,.10);
+  --radius:16px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  background:var(--creme);color:var(--texte);line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none}
+section{scroll-margin-top:80px}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ============================== HEADER ============================== */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(251,247,241,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--bord);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;color:var(--bois-fonce)}
+.logo .mark{
+  width:42px;height:42px;border-radius:12px;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--bois),var(--bois-fonce));
+  display:grid;place-items:center;font-size:1.25rem;
+  box-shadow:0 4px 12px rgba(139,94,52,.35);
+}
+.logo small{display:block;font-weight:500;font-size:.72rem;color:var(--gris);letter-spacing:.4px}
+
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:.94rem;font-weight:600;color:var(--gris);transition:.2s;position:relative}
+.nav-links a:hover{color:var(--bois)}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;
+  background:var(--bois);transition:.25s;border-radius:2px;
+}
+.nav-links a:hover::after{width:100%}
+
+.nav-actions{display:flex;align-items:center;gap:10px}
+.btn-cart{
+  position:relative;background:var(--bois-fonce);color:#fff;
+  padding:11px 18px;border-radius:50px;font-weight:700;font-size:.9rem;
+  display:flex;align-items:center;gap:8px;transition:.2s;
+}
+.btn-cart:hover{background:var(--bois);transform:translateY(-2px)}
+.badge{
+  position:absolute;top:-6px;right:-6px;background:var(--or);color:#fff;
+  min-width:22px;height:22px;border-radius:50%;font-size:.72rem;
+  display:grid;place-items:center;font-weight:800;border:2px solid var(--creme);
+  transition:.2s;
+}
+.badge.hide{transform:scale(0)}
+
+.burger{display:none;background:none;font-size:1.6rem;color:var(--bois-fonce);padding:6px}
+
+/* ============================== HERO ============================== */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(201,162,39,.18), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(46,125,91,.14), transparent 45%),
+    linear-gradient(160deg,#F3E8D8 0%,#FBF7F1 60%);
+  padding:80px 0 90px;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--bord);color:var(--bois);
+  padding:7px 16px;border-radius:50px;font-size:.8rem;font-weight:700;
+  margin-bottom:22px;box-shadow:var(--ombre);
+}
+.hero h1{
+  font-size:clamp(2rem,4.6vw,3.35rem);line-height:1.12;
+  color:var(--bois-fonce);font-weight:800;letter-spacing:-1px;margin-bottom:20px;
+}
+.hero h1 span{
+  color:var(--bois);position:relative;display:inline-block;
+}
+.hero h1 span::after{
+  content:'';position:absolute;left:0;bottom:4px;width:100%;height:10px;
+  background:rgba(201,162,39,.32);border-radius:4px;z-index:-1;
+}
+.hero p{font-size:1.05rem;color:var(--gris);max-width:520px;margin-bottom:32px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;padding:15px 28px;
+  border-radius:50px;font-weight:700;font-size:.96rem;transition:.22s;
+}
+.btn-wa{background:var(--vert);color:#fff;box-shadow:0 8px 22px rgba(37,211,102,.35)}
+.btn-wa:hover{background:var(--vert-fonce);transform:translateY(-3px);box-shadow:0 12px 28px rgba(37,211,102,.42)}
+.btn-outline{background:#fff;color:var(--bois-fonce);border:1.5px solid var(--bord)}
+.btn-outline:hover{border-color:var(--bois);transform:translateY(-3px);box-shadow:var(--ombre)}
+
+.hero-stats{display:flex;gap:36px;margin-top:42px;flex-wrap:wrap}
+.hero-stats div strong{display:block;font-size:1.7rem;color:var(--bois-fonce);font-weight:800;line-height:1.2}
+.hero-stats div span{font-size:.82rem;color:var(--gris);font-weight:600}
+
+/* Illustration hero */
+.hero-art{
+  position:relative;border-radius:26px;overflow:hidden;
+  aspect-ratio:1/1.05;
+  background:linear-gradient(145deg,#E3CFB4,#C89B6E 55%,#A87B4E);
+  display:grid;place-items:center;font-size:9rem;
+  box-shadow:0 30px 60px -20px rgba(92,61,34,.45);
+  border:6px solid #fff;
+}
+.hero-art::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 2px,transparent 2px 26px);
+  pointer-events:none;
+}
+.hero-float{
+  position:absolute;background:#fff;padding:14px 18px;border-radius:14px;
+  box-shadow:0 14px 34px rgba(92,61,34,.20);display:flex;align-items:center;gap:11px;
+  font-size:.85rem;font-weight:700;color:var(--bois-fonce);animation:float 4s ease-in-out infinite;
+}
+.hero-float small{display:block;font-weight:500;color:var(--gris);font-size:.72rem}
+.hero-float.f1{top:9%;left:-6%}
+.hero-float.f2{bottom:12%;right:-4%;animation-delay:1.6s}
+.hero-float .ic{font-size:1.4rem}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ============================== SECTIONS ============================== */
+.sec{padding:84px 0}
+.sec-head{text-align:center;max-width:620px;margin:0 auto 46px}
+.sec-head .kicker{
+  color:var(--bois);font-weight:800;font-size:.78rem;letter-spacing:2.4px;
+  text-transform:uppercase;margin-bottom:12px;
+}
+.sec-head h2{
+  font-size:clamp(1.7rem,3.4vw,2.4rem);color:var(--bois-fonce);
+  font-weight:800;letter-spacing:-.6px;margin-bottom:14px;
+}
+.sec-head p{color:var(--gris);font-size:1rem}
+
+/* ============================== FILTRES ============================== */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:38px}
+.filters button{
+  background:#fff;border:1.5px solid var(--bord);color:var(--gris);
+  padding:9px 20px;border-radius:50px;font-weight:700;font-size:.86rem;transition:.2s;
+}
+.filters button:hover{border-color:var(--bois-clair);color:var(--bois)}
+.filters button.active{background:var(--bois-fonce);border-color:var(--bois-fonce);color:#fff}
+
+/* ============================== PRODUITS ============================== */
+.grid-produits{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:26px;
+}
+.card{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--bord);transition:.28s;display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-7px);box-shadow:0 22px 44px -14px rgba(92,61,34,.28);border-color:var(--bois-clair)}
+.card-img{
+  aspect-ratio:4/3;display:grid;place-items:center;font-size:4rem;position:relative;
+  background:linear-gradient(135deg,#EFE2D0,#D9BE9B);overflow:hidden;
+}
+.card-img img{width:100%;height:100%;object-fit:cover}
+.card-img::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(105deg,rgba(255,255,255,.09) 0 3px,transparent 3px 22px);
+}
+.card-cat{
+  position:absolute;top:12px;left:12px;z-index:2;
+  background:rgba(255,255,255,.94);color:var(--bois-fonce);
+  font-size:.7rem;font-weight:800;padding:5px 12px;border-radius:50px;letter-spacing:.4px;
+}
+.card-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1;gap:8px}
+.card-body h3{font-size:1.02rem;color:var(--bois-fonce);font-weight:800;line-height:1.3}
+.card-body .desc{font-size:.85rem;color:var(--gris);flex:1}
+.card-price{
+  font-size:1.32rem;font-weight:800;color:var(--bois);
+  display:flex;align-items:baseline;gap:6px;margin-top:4px;
+}
+.card-price small{font-size:.78rem;font-weight:600;color:var(--gris)}
+.card-actions{display:flex;gap:8px;margin-top:8px}
+.btn-add{
+  flex:1;background:var(--bois-fonce);color:#fff;padding:12px;border-radius:11px;
+  font-weight:700;font-size:.87rem;transition:.2s;
+}
+.btn-add:hover{background:var(--bois)}
+.btn-wa-sm{
+  width:46px;background:var(--vert);color:#fff;border-radius:11px;
+  font-size:1.15rem;display:grid;place-items:center;transition:.2s;
+}
+.btn-wa-sm:hover{background:var(--vert-fonce);transform:scale(1.06)}
+
+/* ============================== À PROPOS ============================== */
+.apropos{background:#fff;border-top:1px solid var(--bord);border-bottom:1px solid var(--bord)}
+.apropos-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.apropos-art{
+  border-radius:22px;aspect-ratio:1/.92;display:grid;place-items:center;font-size:7rem;
+  background:linear-gradient(150deg,#EFE2D0,#C89B6E);
+  box-shadow:var(--ombre);border:5px solid #fff;position:relative;overflow:hidden;
+}
+.apropos-art::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 2px,transparent 2px 24px);
+}
+.valeurs{display:grid;gap:16px;margin-top:28px}
+.valeur{display:flex;gap:15px;align-items:flex-start}
+.valeur .ic{
+  width:46px;height:46px;flex:0 0 auto;border-radius:13px;display:grid;place-items:center;
+  background:var(--creme);border:1px solid var(--bord);font-size:1.25rem;
+}
+.valeur h4{font-size:.98rem;color:var(--bois-fonce);font-weight:800;margin-bottom:2px}
+.valeur p{font-size:.87rem;color:var(--gris)}
+
+/* ============================== PAIEMENT ============================== */
+.paiement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.pay-card{
+  background:#fff;border:1px solid var(--bord);border-radius:var(--radius);
+  padding:28px 24px;transition:.25s;position:relative;overflow:hidden;
+}
+.pay-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--bois),var(--or));
+  transform:scaleX(0);transform-origin:left;transition:.3s;
+}
+.pay-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -14px rgba(92,61,34,.25)}
+.pay-card:hover::before{transform:scaleX(1)}
+.pay-card .ic{
+  width:54px;height:54px;border-radius:15px;display:grid;place-items:center;
+  font-size:1.6rem;margin-bottom:16px;
+  background:linear-gradient(135deg,#F5EBDD,#E8D9C5);
+}
+.pay-card h4{font-size:1.02rem;color:var(--bois-fonce);font-weight:800;margin-bottom:7px}
+.pay-card p{font-size:.86rem;color:var(--gris)}
+
+.note{
+  margin-top:34px;background:linear-gradient(120deg,#F5EBDD,#FBF7F1);
+  border:1px solid var(--bord);border-left:5px solid var(--accent);
+  border-radius:14px;padding:22px 26px;display:flex;gap:16px;align-items:flex-start;
+}
+.note .ic{font-size:1.6rem;line-height:1}
+.note h4{color:var(--bois-fonce);font-size:.98rem;margin-bottom:4px}
+.note p{font-size:.88rem;color:var(--gris)}
+
+/* ============================== CONTACT ============================== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact-info{display:grid;gap:18px;align-content:start}
+.info-item{display:flex;gap:15px;align-items:center;background:#fff;padding:18px 20px;border-radius:14px;border:1px solid var(--bord)}
+.info-item .ic{
+  width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#F5EBDD,#E8D9C5);font-size:1.25rem;flex:0 0 auto;
+}
+.info-item h4{font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--gris);font-weight:800}
+.info-item p{font-size:.94rem;color:var(--bois-fonce);font-weight:700;word-break:break-word}
+
+.form{background:#fff;border:1px solid var(--bord);border-radius:var(--radius);padding:30px}
+.form h3{color:var(--bois-fonce);font-size:1.15rem;margin-bottom:18px;font-weight:800}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:.82rem;font-weight:700;color:var(--gris);margin-bottom:6px}
+.field input,.field textarea,.field select{
+  width:100%;padding:13px 15px;border:1.5px solid var(--bord);border-radius:11px;
+  font-family:inherit;font-size:.92rem;color:var(--texte);background:var(--creme);transition:.2s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  outline:none;border-color:var(--bois);background:#fff;box-shadow:0 0 0 3px rgba(139,94,52,.10);
+}
+.field textarea{resize:vertical;min-height:96px}
+.btn-submit{
+  width:100%;background:var(--vert);color:#fff;padding:15px;border-radius:11px;
+  font-weight:800;font-size:.96rem;transition:.2s;display:flex;align-items:center;justify-content:center;gap:9px;
+}
+.btn-submit:hover{background:var(--vert-fonce);transform:translateY(-2px)}
+
+/* ============================== FOOTER ============================== */
+footer{background:var(--bois-fonce);color:#EADFD2;padding:56px 0 26px;margin-top:0}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:38px}
+footer h4{color:#fff;font-size:.95rem;margin-bottom:16px;font-weight:800}
+footer p{font-size:.88rem;color:#C6B4A0;line-height:1.75}
+footer ul{list-style:none;display:grid;gap:10px}
+footer ul a{font-size:.88rem;color:#C6B4A0;transition:.2s}
+footer ul a:hover{color:var(--or);padding-left:4px}
+.socials{display:flex;gap:10px;margin-top:16px}
+.socials a{
+  width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(255,255,255,.09);font-size:1.1rem;transition:.2s;
+}
+.socials a:hover{background:var(--vert);transform:translateY(-3px)}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.12);padding-top:22px;
+  text-align:center;font-size:.83rem;color:#A89684;
+}
+
+/* ============================== PANIER (DRAWER) ============================== */
+.overlay{
+  position:fixed;inset:0;background:rgba(43,33,24,.55);backdrop-filter:blur(3px);
+  opacity:0;visibility:hidden;transition:.3s;z-index:200;
+}
+.overlay.open{opacity:1;visibility:visible}
+.drawer{
+  position:fixed;top:0;right:0;height:100%;width:430px;max-width:100%;
+  background:var(--creme);z-index:201;display:flex;flex-direction:column;
+  transform:translateX(105%);transition:transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow:-20px 0 60px rgba(43,33,24,.25);
+}
+.drawer.open{transform:translateX(0)}
+.drawer-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 22px;border-bottom:1px solid var(--bord);background:#fff;
+}
+.drawer-head h3{font-size:1.1rem;color:var(--bois-fonce);font-weight:800}
+.drawer-head button{background:none;font-size:1.3rem;color:var(--gris);padding:4px 8px}
+.drawer-body{flex:1;overflow-y:auto;padding:18px 22px}
+.drawer-foot{padding:18px 22px 22px;background:#fff;border-top:1px solid var(--bord)}
+
+.cart-item{
+  display:flex;gap:12px;background:#fff;border:1px solid var(--bord);
+  border-radius:13px;padding:11px;margin-bottom:11px;align-items:center;
+}
+.cart-item .thumb{
+  width:56px;height:56px;flex:0 0 auto;border-radius:10px;display:grid;place-items:center;
+  font-size:1.6rem;background:linear-gradient(135deg,#EFE2D0,#D9BE9B);
+}
+.cart-item .info{flex:1;min-width:0}
+.cart-item .info h4{font-size:.86rem;color:var(--bois-fonce);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cart-item .info span{font-size:.82rem;color:var(--bois);font-weight:700}
+.qty{display:flex;align-items:center;gap:6px;margin-top:5px}
+.qty button{
+  width:24px;height:24px;border-radius:7px;background:var(--creme);border:1px solid var(--bord);
+  font-weight:800;color:var(--bois-fonce);font-size:.85rem;display:grid;place-items:center;
+}
+.qty button:hover{background:var(--bois);color:#fff;border-color:var(--bois)}
+.qty span{font-size:.85rem;font-weight:800;min-width:20px;text-align:center}
+.del{background:none;color:#C0523F;font-size:1rem;padding:4px}
+
+.empty{text-align:center;padding:60px 10px;color:var(--gris)}
+.empty .ic{font-size:3.4rem;display:block;margin-bottom:12px;opacity:.5}
+
+.total-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0 16px;font-size:1rem;
+}
+.total-row strong{font-size:1.4rem;color:var(--bois);font-weight:800}
+.mini-field{margin-bottom:10px}
+.mini-field input,.mini-field select,.mini-field textarea{
+  width:100%;padding:11px 13px;border:1.5px solid var(--bord);border-radius:10px;
+  font-family:inherit;font-size:.88rem;background:var(--creme);
+}
+.mini-field input:focus,.mini-field select:focus,.mini-field textarea:focus{
+  outline:none;border-color:var(--bois);background:#fff;
+}
+.btn-order{
+  width:100%;background:var(--vert);color:#fff;padding:15px;border-radius:12px;
+  font-weight:800;font-size:.95rem;display:flex;align-items:center;justify-content:center;gap:9px;
+  transition:.2s;margin-top:6px;
+}
+.btn-order:hover{background:var(--vert-fonce)}
+.btn-order:disabled{background:#BFB3A5;cursor:not-allowed}
+
+/* ============================== WHATSAPP FLOTTANT ============================== */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:150;
+  width:60px;height:60px;border-radius:50%;background:var(--vert);color:#fff;
+  display:grid;place-items:center;font-size:1.8rem;
+  box-shadow:0 10px 30px rgba(37,211,102,.45);transition:.25s;
+  animation:pulse 2.4s infinite;
+}
+.wa-float:hover{transform:scale(1.1);background:var(--vert-fonce)}
+@keyframes pulse{
+  0%{box-shadow:0 10px 30px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.45)}
+  70%{box-shadow:0 10px 30px rgba(37,211,102,.45),0 0 0 18px rgba(37,211,102,0)}
+  100%{box-shadow:0 10px 30px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,0)}
+}
+
+/* ============================== TOAST ============================== */
+.toast{
+  position:fixed;bottom:100px;left:50%;transform:translate(-50%,26px);
+  background:var(--bois-fonce);color:#fff;padding:13px 24px;border-radius:50px;
+  font-size:.88rem;font-weight:700;z-index:300;opacity:0;pointer-events:none;transition:.3s;
+  box-shadow:0 12px 30px rgba(43,33,24,.3);white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ============================== RESPONSIVE ============================== */
+@media(max-width:980px){
+  .hero-grid,.apropos-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-art{max-width:400px;margin:0 auto}
+  .hero-float.f1{left:0}
+  .hero-float.f2{right:0}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links{
+    position:fixed;top:72px;left:0;width:100%;background:#fff;flex-direction:column;
+    padding:22px;gap:18px;border-bottom:1px solid var(--bord);
+    transform:translateY(-140%);transition:.32s;box-shadow:0 16px 30px rgba(92,61,34,.14);
+  }
+  .nav-links.open{transform:translateY(0)}
+  .burger{display:block}
+  .btn-cart span.lbl{display:none}
+  .sec{padding:60px 0}
+  .hero{padding:52px 0 66px}
+  .hero-stats{gap:24px}
+  .foot-grid{grid-template-columns:1fr}
+  .drawer{width:100%}
+  .wa-float{width:54px;height:54px;font-size:1.55rem;bottom:18px;right:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header>
+  <div class="wrap nav">
+    <a href="#accueil" class="logo">
+      <div class="mark">🪵</div>
+      <div>
+        Bois Recyclé
+        <small>Coopérative artisanale</small>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#accueil">Accueil</a>
+      <a href="#produits">Produits</a>
+      <a href="#apropos">À propos</a>
+      <a href="#paiement">Paiement</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="btn-cart" onclick="ouvrirPanier()">
+        🛒 <span class="lbl">Panier</span>
+        <span class="badge hide" id="badge">0</span>
+      </button>
+      <button class="burger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="accueil">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="tag">♻️ 100 % bois recyclé & fait main</div>
+      <h1>Du bois oublié<br>naissent des <span>objets uniques</span></h1>
+      <p>
+        Notre coopérative transforme les chutes de bois et palettes usagées en mobilier
+        et objets de décoration artisanaux. Chaque pièce est fabriquée à la main,
+        dans le respect de l'environnement — et commandée en 1 clic sur WhatsApp.
+      </p>
+      <div class="hero-btns">
+        <a href="#produits" class="btn btn-wa">🛍️ Découvrir les produits</a>
+        <button class="btn btn-outline" onclick="commanderDirect()">💬 Commander sur WhatsApp</button>
+      </div>
+      <div class="hero-stats">
+        <div><strong>+150</strong><span>Clients satisfaits</span></div>
+        <div><strong>100 %</strong><span>Bois recyclé</span></div>
+        <div><strong>48 h</strong><span>Préparation commande</span></div>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      🪑
+      <div class="hero-float f1">
+        <span class="ic">♻️</span>
+        <div>Matériaux recyclés<small>Palettes & chutes de bois</small></div>
+      </div>
+      <div class="hero-float f2">
+        <span class="ic">✋</span>
+        <div>Fait main<small>Par nos artisans locaux</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRODUITS ============================ -->
+<section class="sec" id="produits">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Notre collection</div>
+      <h2>Nos produits artisanaux</h2>
+      <p>Chaque création est unique. Ajoutez au panier ou commandez directement sur WhatsApp.</p>
+    </div>
+
+    <div class="filters" id="filters"></div>
+    <div class="grid-produits" id="gridProduits"></div>
+  </div>
+</section>
+
+<!-- ============================ À PROPOS ============================ -->
+<section class="sec apropos" id="apropos">
+  <div class="wrap apropos-grid">
+    <div class="apropos-art">🪚</div>
+    <div>
+      <div class="kicker" style="color:var(--bois);font-weight:800;font-size:.78rem;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:12px;">Notre histoire</div>
+      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem);color:var(--bois-fonce);font-weight:800;letter-spacing:-.6px;margin-bottom:14px;">
+        Une coopérative, des artisans, une seconde vie pour le bois
+      </h2>
+      <p style="color:var(--gris);font-size:.98rem;">
+        Nous sommes un collectif d'artisans réunis autour d'une même conviction :
+        le bois usagé a encore beaucoup à offrir. Nous récupérons palettes,
+        meubles abandonnés et chutes d'atelier pour les transformer en pièces
+        durables, chaleureuses et abordables.
+      </p>
+
+      <div class="valeurs">
+        <div class="valeur">
+          <div class="ic">♻️</div>
+          <div>
+            <h4>Écologie & récupération</h4>
+            <p>Chaque objet évite qu'une quantité de bois ne finisse à la décharge.</p>
+          </div>
+        </div>
+        <div class="valeur">
+          <div class="ic">✋</div>
+          <div>
+            <h4>Artisanat local</h4>
+            <p>Fabriqué à la main par les membres de la coopérative, en petites séries.</p>
+          </div>
+        </div>
+        <div class="valeur">
+          <div class="ic">💛</div>
+          <div>
+            <h4>Prix justes</h4>
+            <p>Un revenu équitable pour les artisans, un prix accessible pour vous.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PAIEMENT ============================ -->
+<section class="sec" id="paiement">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Facilités</div>
+      <h2>Modes de paiement & livraison</h2>
+      <p>Choisissez ce qui vous arrange. Une facture vous est remise pour chaque commande.</p>
+    </div>
+
+    <div class="paiement-grid">
+      <div class="pay-card">
+        <div class="ic">💵</div>
+        <h4>Paiement en espèces</h4>
+        <p>Réglez en liquide à la livraison ou directement à notre atelier.</p>
+      </div>
+      <div class="pay-card">
+        <div class="ic">🏦</div>
+        <h4>Virement bancaire</h4>
+        <p>Coordonnées bancaires envoyées sur WhatsApp après confirmation de la commande.</p>
+      </div>
+      <div class="pay-card">
+        <div class="ic">📱</div>
+        <h4>Paiement mobile</h4>
+        <p>Mobile Money / paiement par téléphone, rapide et sécurisé.</p>
+      </div>
+      <div class="pay-card">
+        <div class="ic">💳</div>
+        <h4>Carte bancaire</h4>
+        <p>Lien de paiement sécurisé envoyé sur demande (via WhatsApp).</p>
+      </div>
+      <div class="pay-card">
+        <div class="ic">🚚</div>
+        <h4>Paiement à la livraison</h4>
+        <p>Vous payez uniquement lorsque le produit est entre vos mains.</p>
+      </div>
+      <div class="pay-card">
+        <div class="ic">🎁</div>
+        <h4>Sur mesure / devis</h4>
+        <p>Acompte de 30 % pour toute commande personnalisée.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="ic">📦</div>
+      <div>
+        <h4>Livraison & délais</h4>
+        <p>
+          Livraison en 2 à 5 jours ouvrables · <strong>Gratuite dès 500 DH</strong> d'achat ·
+          Retrait possible gratuitement à l'atelier · Livraison dans tout le pays sur devis.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="sec" id="contact" style="background:#fff;border-top:1px solid var(--bord);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Parlons-en</div>
+      <h2>Contactez-nous</h2>
+      <p>Une question, un projet sur mesure ? Écrivez-nous, on vous répond rapidement.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="ic">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p id="infoWa">—</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="ic">✉️</div>
+          <div>
+            <h4>E-mail</h4>
+            <p id="infoMail">—</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="ic">📍</div>
+          <div>
+            <h4>Atelier</h4>
+            <p id="infoAdr">—</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="ic">🕐</div>
+          <div>
+            <h4>Horaires</h4>
+            <p>Lun – Sam · 9h00 à 18h00</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="form" id="contactForm" onsubmit="envoyerContact(event)">
+        <h3>Envoyer un message</h3>
+        <div class="field">
+          <label>Votre nom *</label>
+          <input type="text" id="cNom" required placeholder="Ex : Sara Bennani">
+        </div>
+        <div class="field">
+          <label>Votre téléphone</label>
+          <input type="tel" id="cTel" placeholder="Ex : 06 12 34 56 78">
+        </div>
+        <div class="field">
+          <label>Votre message *</label>
+          <textarea id="cMsg" required placeholder="Bonjour, je souhaite un devis pour…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">💬 Envoyer via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:14px;">
+          <div class="mark">🪵</div>
+          <div>Bois Recyclé<small style="color:#C6B4A0;">Coopérative artisanale</small></div>
+        </div>
+        <p>Nous transformons le bois recyclé en objets artisanaux uniques, durables et abordables. Fabriqué avec passion, livré avec soin.</p>
+        <div class="socials">
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="Instagram">📸</a>
+          <a href="#" title="TikTok">🎵</a>
+          <a href="#" id="footWa" title="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#produits">Produits</a></li>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#paiement">Paiement</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="#paiement">Modes de paiement</a></li>
+          <li><a href="#paiement">Livraison</a></li>
+          <li><a href="#contact">Sur mesure</a></li>
+          <li><a href="#contact">Devis gratuit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#" id="footWa2">💬 WhatsApp</a></li>
+          <li><a href="#" id="footMail">✉️ E-mail</a></li>
+          <li><a href="#">📍 Voir l'atelier</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © <span id="year"></span> Coopérative Bois Recyclé — Tous droits réservés · Site artisanal fait avec ♻️
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ PANIER ============================ -->
+<div class="overlay" id="overlay" onclick="fermerPanier()"></div>
+
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>🛒 Mon panier</h3>
+    <button onclick="fermerPanier()">✕</button>
+  </div>
+
+  <div class="drawer-body" id="cartItems"></div>
+
+  <div class="drawer-foot">
+    <div class="total-row">
+      <span>Total</span>
+      <strong id="cartTotal">0 DH</strong>
+    </div>
+
+    <div class="mini-field">
+      <input type="text" id="cliNom" placeholder="Votre nom complet *">
+    </div>
+    <div class="mini-field">
+      <input type="text" id="cliVille" placeholder="Ville / adresse de livraison *">
+    </div>
+    <div class="mini-field">
+      <select id="cliPaiement">
+        <option value="Espèces à la livraison">💵 Espèces à la livraison</option>
+        <option value="Virement bancaire">🏦 Virement bancaire</option>
+        <option value="Paiement mobile">📱 Paiement mobile</option>
+        <option value="Carte bancaire">💳 Carte bancaire</option>
+        <option value="Retrait à l'atelier">🏠 Retrait à l'atelier</option>
+      </select>
+    </div>
+    <div class="mini-field">
+      <textarea id="cliNote" rows="2" placeholder="Note (optionnel) : couleur, dimensions…"></textarea>
+    </div>
+
+    <button class="btn-order" id="btnOrder" onclick="commanderPanier()">
+      💬 Commander via WhatsApp
+    </button>
+  </div>
+</aside>
+
+<!-- WhatsApp flottant -->
+<a class="wa-float" id="waFloat" href="#" target="_blank" title="Discuter sur WhatsApp">💬</a>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================================================================
+   1) CONFIGURATION GÉNÉRALE  —  MODIFIEZ UNIQUEMENT CETTE PARTIE
+   ================================================================ */
+const CONFIG = {
+  nom: "Coopérative Bois Recyclé",
+
+  // ⚠️ Numéro WhatsApp au format international SANS "+" ni espaces
+  // Exemple Maroc : 212612345678  |  France : 33612345678
+  whatsapp: "212600000000",
+
+  email: "contact@cooperative-bois-recycle.com",
+  adresse: "Rue des Artisans, Zone Industrielle, Casablanca",
+  devise: "DH",
+  livraisonGratuite: 500   // seuil de livraison gratuite
+};
+
+/* ================================================================
+   2) LISTE DES PRODUITS — ajoutez / modifiez / supprimez librement
+   ================================================================ */
+const PRODUITS = [
+  {
+    id: 1,
+    nom: "Table basse en palettes",
+    categorie: "Mobilier",
+    prix: 850,
+    emoji: "🪑",
+    image: "",   // ← mettez "images/table.jpg" si vous avez une photo
+    desc: "Table basse robuste en palettes recyclées, finition naturelle. 90 × 60 cm."
+  },
+  {
+    id: 2,
+    nom: "Planche à découper gravée",
+    categorie: "Cuisine",
+    prix: 120,
+    emoji: "🍽️",
+    image: "",
+    desc: "Bois massif recyclé, gravure personnalisable. Idéale en cadeau."
+  },
+  {
+    id: 3,
+    nom: "Miroir cadre bois brut",
+    categorie: "Décoration",
+    prix: 320,
+    emoji: "🪞",
+    image: "",
+    desc: "Cadre en bois recyclé brut, finition huilée. 40 × 60 cm."
+  },
+  {
+    id: 4,
+    nom: "Étagère murale 3 niveaux",
+    categorie: "Mobilier",
+    prix: 260,
+    emoji: "🗄️",
+    image: "",
+    desc: "Étagère murale en bois recyclé, fixation murale incluse."
+  },
+  {
+    id: 5,
+    nom: "Horloge murale bois & engrenages",
+    categorie: "Décoration",
+    prix: 180,
+    emoji: "🕰️",
+    image: "",
+    desc: "Mécanisme silencieux, design industriel en bois recyclé."
+  },
+  {
+    id: 6,
+    nom: "Porte-manteau mural",
+    categorie: "Décoration",
+    prix: 95,
+    emoji: "🪝",
+    image: "",
+    desc: "5 patères en bois recyclé, idéal entrée ou chambre."
+  },
+  {
+    id: 7,
+    nom: "Set de 3 dessous de plat",
+    categorie: "Cuisine",
+    prix: 75,
+    emoji: "🍴",
+    image: "",
+    desc: "Dessous de plat en chutes de bois, résistants à la chaleur."
+  },
+  {
+    id: 8,
+    nom: "Boîte à bijoux en bois",
+    categorie: "Accessoires",
+    prix: 150,
+    emoji: "💍",
+    image: "",
+    desc: "Boîte artisanale avec compartiments, fermeture aimantée."
+  },
+  {
+    id: 9,
+    nom: "Cadre photo 13 × 18",
+    categorie: "Décoration",
+    prix: 110,
+    emoji: "🖼️",
+    image: "",
+    desc: "Cadre en bois recyclé, socle incliné. Plusieurs tailles disponibles."
+  },
+  {
+    id: 10,
+    nom: "Lampe de chevet en bois",
+    categorie: "Décoration",
+    prix: 290,
+    emoji: "💡",
+    image: "",
+    desc: "Pied en bois recyclé et abat-jour en toile naturelle."
+  },
+  {
+    id: 11,
+    nom: "Table d'appoint / bout de canapé",
+    categorie: "Mobilier",
+    prix: 420,
+    emoji: "🛋️",
+    image: "",
+    desc: "Table d'appoint compacte en bois recyclé, 45 × 45 cm."
+  },
+  {
+    id: 12,
+    nom: "Jeu de société en bois",
+    categorie: "Jeux",
+    prix: 210,
+    emoji: "🎲",
+    image: "",
+    desc: "Jeu artisanal en bois recyclé, peintures non toxiques."
+  }
+];
+
+/* ================================================================
+   3) MOTEUR DU SITE — pas besoin de toucher en dessous
+   ================================================================ */
+
+const $ = (id) => document.getElementById(id);
+let panier = JSON.parse(localStorage.getItem("panier_bois_v1") || "[]");
+let filtreActif = "Tous";
+
+/* ---------- Utilitaires ---------- */
+function money(n){ return n.toLocaleString("fr-FR") + " " + CONFIG.devise; }
+function lienWa(msg){
+  return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg);
+}
+function toast(txt){
+  const t = $("toast");
+  t.textContent = txt;
+  t.classList.add("show");
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove("show"), 2200);
+}
+function sauver(){ localStorage.setItem("panier_bois_v1", JSON.stringify(panier)); }
+
+/* ---------- Affichage des produits ---------- */
+function renderFiltres(){
+  const cats = ["Tous", ...new Set(PRODUITS.map(p => p.categorie))];
+  $("filters").innerHTML = cats.map(c =>
+    `<button class="${c === filtreActif ? 'active' : ''}" onclick="filtrer('${c}')">${c}</button>`
+  ).join("");
+}
+
+function filtrer(cat){
+  filtreActif = cat;
+  renderFiltres();
+  renderProduits();
+}
+
+function renderProduits(){
+  const liste = filtreActif === "Tous"
+    ? PRODUITS
+    : PRODUITS.filter(p => p.categorie === filtreActif);
+
+  $("gridProduits").innerHTML = liste.map(p => `
+    <article class="card">
+      <div class="card-img">
+        <span class="card-cat">${p.categorie}</span>
+        ${p.image ? `<img src="${p.image}" alt="${p.nom}" loading="lazy">` : p.emoji}
+      </div>
+      <div class="card-body">
+        <h3>${p.nom}</h3>
+        <p class="desc">${p.desc}</p>
+        <div class="card-price">${money(p.prix)}</div>
+        <div class="card-actions">
+          <button class="btn-add" onclick="ajouter(${p.id})">+ Ajouter au panier</button>
+          <button class="btn-wa-sm" title="Commander sur WhatsApp" onclick="commanderProduit(${p.id})">💬</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+/* ---------- Panier ---------- */
+function ajouter(id){
+  const p = PRODUITS.find(x => x.id === id);
+  const ligne = panier.find(x => x.id === id);
+  if (ligne) ligne.qte++;
+  else panier.push({ id, qte: 1 });
+  sauver();
+  majPanier();
+  toast("✅ " + p.nom + " ajouté au panier");
+}
+
+function changerQte(id, delta){
+  const ligne = panier.find(x => x.id === id);
+  if (!ligne) return;
+  ligne.qte += delta;
+  if (ligne.qte <= 0) panier = panier.filter(x => x.id !== id);
+  sauver();
+  majPanier();
+}
+
+function supprimer(id){
+  panier = panier.filter(x => x.id !== id);
+  sauver();
+  majPanier();
+}
+
+function totalPanier(){
+  return panier.reduce((s, l) => {
+    const p = PRODUITS.find(x => x.id === l.id);
+    return s + (p ? p.prix * l.qte : 0);
+  }, 0);
+}
+
+function majPanier(){
+  const nb = panier.reduce((s, l) => s + l.qte, 0);
+  const badge = $("badge");
+  badge.textContent = nb;
+  badge.classList.toggle("hide", nb === 0);
+
+  const box = $("cartItems");
+
+  if (panier.length === 0){
+    box.innerHTML = `
+      <div class="empty">
+        <span class="ic">🛒</span>
+        Votre panier est vide.<br>
+        <small>Ajoutez un produit pour commencer.</small>
+      </div>`;
+  } else {
+    box.innerHTML = panier.map(l => {
+      const p = PRODUITS.find(x => x.id === l.id);
+      if (!p) return "";
+      return `
+        <div class="cart-item">
+          <div class="thumb">${p.image ? `<img src="${p.image}" style="width:100%;height:100%;object-fit:cover;border-radius:10px">` : p.emoji}</div>
+          <div class="info">
+            <h4>${p.nom}</h4>
+            <span>${money(p.prix * l.qte)}</span>
+            <div class="qty">
+              <button onclick="changerQte(${p.id},-1)">−</button>
+              <span>${l.qte}</span>
+              <button onclick="changerQte(${p.id},1)">+</button>
+            </div>
+          </div>
+          <button class="del" onclick="supprimer(${p.id})" title="Supprimer">🗑️</button>
+        </div>`;
+    }).join("");
+  }
+
+  $("cartTotal").textContent = money(totalPanier());
+  $("btnOrder").disabled = panier.length === 0;
+}
+
+function ouvrirPanier(){
+  $("drawer").classList.add("open");
+  $("overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function fermerPanier(){
+  $("drawer").classList.remove("open");
+  $("overlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+/* ---------- Commandes WhatsApp ---------- */
+function commanderProduit(id){
+  const p = PRODUITS.find(x => x.id === id);
+  const msg =
+`Bonjour ${CONFIG.nom} 👋
+
+Je suis intéressé(e) par ce produit :
+
+🪵 *${p.nom}*
+💰 Prix : ${money(p.prix)}
+📦 Catégorie : ${p.categorie}
+
+Pouvez-vous me donner plus d'informations (disponibilité, délai, livraison) ?
+
+Merci beaucoup !`;
+  window.open(lienWa(msg), "_blank");
+}
+
+function commanderDirect(){
+  const msg =
+`Bonjour ${CONFIG.nom} 👋
+
+Je souhaite passer une commande de produits artisanaux en bois recyclé.
+Pouvez-vous m'aider à choisir ?
+
+Merci !`;
+  window.open(lienWa(msg), "_blank");
+}
+
+function commanderPanier(){
+  if (panier.length === 0) return;
+
+  const nom = $("cliNom").value.trim();
+  const ville = $("cliVille").value.trim();
+  const paiement = $("cliPaiement").value;
+  const note = $("cliNote").value.trim();
+
+  if (!nom){ toast("⚠️ Merci d'indiquer votre nom"); $("cliNom").focus(); return; }
+  if (!ville){ toast("⚠️ Merci d'indiquer votre ville / adresse"); $("cliVille").focus(); return; }
+
+  let lignes = "";
+  panier.forEach(l => {
+    const p = PRODUITS.find(x => x.id === l.id);
+    if (p) lignes += `• ${l.qte} × ${p.nom} — ${money(p.prix * l.qte)}\n`;
+  });
+
+  const total = totalPanier();
+  const livraison = total >= CONFIG.livraisonGratuite
+    ? "Offerte 🎉"
+    : "À confirmer (gratuite dès " + money(CONFIG.livraisonGratuite) + ")";
+
+  const msg =
+`Bonjour ${CONFIG.nom} 👋
+Je souhaite passer commande 🛒
+
+━━━━━━━━━━━━━━━
+${lignes}━━━━━━━━━━━━━━━
+💰 *Total : ${money(total)}*
+🚚 Livraison : ${livraison}
+
+👤 Nom : ${nom}
+📍 Adresse : ${ville}
+💳 Paiement : ${paiement}${note ? "\n📝 Note : " + note : ""}
+
+Merci de me confirmer la commande 🙏`;
+
+  window.open(lienWa(msg), "_blank");
+}
+
+/* ---------- Formulaire de contact ---------- */
+function envoyerContact(e){
+  e.preventDefault();
+  const nom = $("cNom").value.trim();
+  const tel = $("cTel").value.trim();
+  const msg = $("cMsg").value.trim();
+
+  const texte =
+`Bonjour ${CONFIG.nom} 👋
+
+👤 Nom : ${nom}${tel ? "\n📞 Téléphone : " + tel : ""}
+
+💬 Message :
+${msg}`;
+
+  window.open(lienWa(texte), "_blank");
+  $("contactForm").reset();
+  toast("✅ Redirection vers WhatsApp…");
+}
+
+/* ---------- Initialisation ---------- */
+function init(){
+  $("year").textContent = new Date().getFullYear();
+
+  // Coordonnées dynamiques
+  $("infoWa").textContent = "+" + CONFIG.whatsapp;
+  $("infoMail").textContent = CONFIG.email;
+  $("infoAdr").textContent = CONFIG.adresse;
+
+  const lien = lienWa("Bonjour " + CONFIG.nom + " 👋 Je vous contacte depuis votre site web.");
+  $("waFloat").href = lien;
+  $("footWa").href = lien;
+  $("footWa2").href = lien;
+  $("footMail").href = "mailto:" + CONFIG.email;
+
+  renderFiltres();
+  renderProduits();
+  majPanier();
+
+  // Fermer le menu mobile après clic
+  document.querySelectorAll("#navLinks a").forEach(a =>
+    a.addEventListener("click", () => $("navLinks").classList.remove("open"))
+  );
+
+  // Échap ferme le panier
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") fermerPanier();
+  });
+}
+
+init();
+</script>
+</body>
+</html>
